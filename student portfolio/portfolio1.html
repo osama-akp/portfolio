@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+    }
+
+    .header {
+      background: linear-gradient(90deg, #ffa726, #fb8c00);
+      padding: 20px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .header-icons img {
+      width: 24px;
+      margin: 0 10px;
+    }
+
+    .nav {
+      display: flex;
+      background-color: #ffb74d;
+      padding: 10px 20px;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+      font-weight: bold;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-item span {
+      margin-left: 5px;
+    }
+
+    .form-container {
+      padding: 30px;
+      background-color: white;
+      max-width: 500px;
+      margin: 20px auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    select, input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .btn-disabled,
+    .btn-enabled {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      color: white;
+      cursor: not-allowed;
+      background-color: #ccc;
+    }
+
+    .btn-enabled {
+      background-color: #43a047;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-title">Student Portfolio</div>
+    <div class="header-icons">
+      <img src="home.png" alt="Home">
+      <img src="folder.png" alt="Folder">
+      <img src="forms.png" alt="Form">
+      <img src="user.png" alt="User">
+      <img src="new-folder.png" alt="Bag">
+      <img src="active.png" alt="Notification">
+    </div>
+  </div>
+
+  <div class="nav">
+    <div class="nav-item">
+      <span>⬤</span> Portfolio Point
+    </div>
+    <div class="nav-item">
+      <span>▶️</span> Student Data
+    </div>
+    <div class="nav-item">
+      <span>▶️</span> Value
+    </div>
+  </div>
+
+  <div class="form-container">
+    <div class="form-group">
+      <label for="strategy">Strategy</label>
+      <select id="strategy">
+        <option value="">-- Select Strategy --</option>
+        <option>Action Research</option>
+        <option>Case Study</option>
+        <option>Project-Based</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Categories</label>
+      <input type="text" id="category" value="Performance">
+    </div>
+
+    <div class="form-group">
+      <label for="judul">Judul KD</label>
+      <input type="text" id="judul" placeholder="Enter Kd title">
+    </div>
+
+    <button id="submitBtn" class="btn-disabled" disabled>Save and continue</button>
+  </div>
+
+  <script>
+    const strategy = document.getElementById('strategy');
+    const category = document.getElementById('category');
+    const judul = document.getElementById('judul');
+    const submitBtn = document.getElementById('submitBtn');
+
+    function validateForm() {
+      const isValid = strategy.value !== '' && category.value.trim() !== '' && judul.value.trim() !== '';
+      submitBtn.disabled = !isValid;
+      submitBtn.className = isValid ? 'btn-enabled' : 'btn-disabled';
+    }
+
+    // Add event listeners
+    strategy.addEventListener('change', validateForm);
+    category.addEventListener('input', validateForm);
+    judul.addEventListener('input', validateForm);
+
+    submitBtn.addEventListener('click', function() {
+      if (!submitBtn.disabled) {
+        console.log("Form submitted with:");
+        console.log("Strategy:", strategy.value);
+        console.log("Category:", category.value);
+        console.log("Judul KD:", judul.value);
+        alert("Form saved successfully!");
+      }
+    });
+  </script>
+
+</body>
+</html>

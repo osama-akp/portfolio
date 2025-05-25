@@ -1,0 +1,193 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Portfolio with Rating</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffb347, #ffcc33);
+    }
+
+    .navbar {
+      background: linear-gradient(to right, #ff6f00, #ffa000);
+      display: flex;
+      align-items: center;
+      padding: 12px 24px;
+      color: white;
+      justify-content: space-between;
+    }
+
+    .navbar .left {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .navbar .right {
+      display: flex;
+      gap: 20px;
+      font-size: 22px;
+    }
+
+    .main-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .card {
+      background: white;
+      max-width: 350px;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .card .header img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 12px;
+    }
+
+    .card .header h3 {
+      margin: 0;
+      font-weight: bold;
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .stars {
+      display: flex;
+      gap: 5px;
+      font-size: 24px;
+    }
+
+    .stars span {
+      cursor: pointer;
+      color: lightgray;
+      transition: color 0.2s;
+    }
+
+    .stars span.active {
+      color: gold;
+    }
+
+    .rate-btn {
+      background: limegreen;
+      color: white;
+      border: none;
+      padding: 6px 16px;
+      border-radius: 12px;
+      font-weight: bold;
+      margin-left: 12px;
+      cursor: pointer;
+    }
+
+    .chevron-down {
+      text-align: center;
+      font-size: 28px;
+      color: #444;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="left">🎓 Student Portfolio</div>
+    <div class="right">🏠 📁 👤 🛍 🔔</div>
+  </div>
+
+  <div class="main-content">
+    <div class="card">
+      <div class="header">
+        <img src="https://via.placeholder.com/50" alt="User" />
+        <h3>Ahmed Hossam</h3>
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin est erat, auctor dapibus pulvinar at, bibendum non ex. [...]
+      </p>
+      <div class="rating">
+        <div class="stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <button class="rate-btn">Rate</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="header">
+        <img src="https://via.placeholder.com/50" alt="User" />
+        <h3>Ahmed Hossam</h3>
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin est erat, auctor dapibus pulvinar at, bibendum non ex. [...]
+      </p>
+      <div class="rating">
+        <div class="stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <button class="rate-btn">Rate</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="chevron-down">⌄</div>
+
+  <script>
+    document.querySelectorAll('.card').forEach(card => {
+      const stars = card.querySelectorAll('.stars span');
+      const rateBtn = card.querySelector('.rate-btn');
+
+      let currentRating = 0;
+
+      stars.forEach((star, index) => {
+        star.addEventListener('click', () => {
+          currentRating = index + 1;
+          updateStars(stars, currentRating);
+        });
+      });
+
+      rateBtn.addEventListener('click', () => {
+        if (currentRating > 0) {
+          alert(`You rated this card ${currentRating} star(s)!`);
+          console.log(`Rated ${currentRating} stars`);
+        } else {
+          alert('Please select a rating before submitting.');
+        }
+      });
+    });
+
+    function updateStars(stars, rating) {
+      stars.forEach((star, index) => {
+        if (index < rating) {
+          star.classList.add('active');
+        } else {
+          star.classList.remove('active');
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

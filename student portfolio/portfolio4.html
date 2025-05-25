@@ -1,0 +1,445 @@
+> Bolo:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+    }
+
+    .header {
+      background: linear-gradient(90deg, #ffa726, #fb8c00);
+      padding: 20px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .header-icons img {
+      width: 24px;
+      margin: 0 10px;
+    }
+
+    .nav {
+      display: flex;
+      background-color: #ffb74d;
+      padding: 10px 20px;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+      font-weight: bold;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-item span {
+      margin-left: 5px;
+    }
+
+    .form-container {
+      padding: 30px;
+      background-color: white;
+      max-width: 1000px;
+      margin: 20px auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    select, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+
+    .media-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px dashed #ccc;
+      padding: 30px;
+      border-radius: 4px;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .media-box img {
+      width: 50px;
+      margin-bottom: 10px;
+    }
+
+    .btn-disabled {
+      grid-column: span 2;
+      padding: 12px;
+      background-color: #ccc;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      color: white;
+      cursor: not-allowed;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-title">Student Portfolio</div>
+    <div class="header-icons">
+      <img src="home-icon.png" alt="Home">
+      <img src="folder-icon.png" alt="Folder">
+      <img src="form-icon.png" alt="Form">
+      <img src="user-icon.png" alt="User">
+      <img src="bag-icon.png" alt="Bag">
+      <img src="bell-icon.png" alt="Notification">
+    </div>
+  </div>
+
+  <div class="nav">
+    <div class="nav-item">
+      <span style="color: limegreen;">⬤</span> Portfolio Point
+    </div>
+    <div class="nav-item">
+      <span style="color: limegreen;">▶️</span> Student Data
+    </div>
+    <div class="nav-item">
+      <span style="color: red;">▶️</span> Value
+    </div>
+  </div>
+
+  <form class="form-container">
+    <div class="form-group">
+      <label for="narrative">Narrative</label>
+      <textarea id="narrative" placeholder="Insert Narration" rows="6"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="media">Input Media</label>
+      <div class="media-box">
+        <img src="camera-icon.png" alt="Camera">
+        <div>Open Camera</div>
+      </div>
+    </div>
+
+    <button class="btn-disabled" disabled>Save and continue</button>
+  </form>
+</body>
+</html>
+
+> Bolo:
+https://chatgpt.com/share/68334249-dd60-8006-b6e9-a3156da971c5
+
+> Bolo:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffb347, #ffcc33);
+    }
+
+    .navbar {
+      background: linear-gradient(to right, #ff6f00, #ffa000);
+      display: flex;
+      align-items: center;
+      padding: 12px 24px;
+      color: white;
+      justify-content: space-between;
+    }
+
+    .navbar .left {
+      font-size: 20px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar .left i {
+      margin-right: 8px;
+    }
+
+    .navbar .right {
+      display: flex;
+      gap: 20px;
+      font-size: 22px;
+    }
+
+    .main-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .card {
+      background: white;
+      max-width: 350px;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .card .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .card .header img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 12px;
+    }
+
+    .card .header h3 {
+      margin: 0;
+      font-weight: bold;
+    }
+
+    .chevron-down {
+      text-align: center;
+      font-size: 28px;
+      color: #444;
+      margin-top: 30px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .main-content {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="left">
+      🎓 Student Portfolio
+    </div>
+    <div class="right">
+      📁 👤 🛍 🔔
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="card">
+      <div class="header">
+        <img src="https://via.placeholder.com/50" alt="User" />
+        <h3>Ahmed Hossam</h3>
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin est erat, auctor dapibus pulvinar at, bibendum non ex. Aenean elit erat, vulputate sit amet velit nec, pulvinar tristique libero. [...]
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="header">
+        <img src="https://via.placeholder.com/50" alt="User" />
+        <h3>Ahmed Hossam</h3>
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin est erat, auctor dapibus pulvinar at, bibendum non ex. Aenean elit erat, vulputate sit amet velit nec, pulvinar tristique libero. [...]
+      </p>
+    </div>
+  </div>
+
+  <div class="chevron-down">
+    ⌄
+  </div>
+
+</body>
+</html>
+
+> Bolo:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Portfolio with Rating</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffb347, #ffcc33);
+    }
+
+    .navbar {
+      background: linear-gradient(to right, #ff6f00, #ffa000);
+      display: flex;
+      align-items: center;
+      padding: 12px 24px;
+      color: white;
+      justify-content: space-between;
+    }
+
+    .navbar .left {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .navbar .right {
+      display: flex;
+      gap: 20px;
+      font-size: 22px;
+    }
+
+    .main-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .card {
+      background: white;
+      max-width: 350px;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .card .header img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 12px;
+    }
+
+    .card .header h3 {
+      margin: 0;
+      font-weight: bold;
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .stars {
+      display: flex;
+      gap: 5px;
+      font-size: 24px;
+    }
+
+    .stars span {
+      cursor: pointer;
+      color: lightgray;
+    }
+
+    .stars .active {
+      color: gold;
+    }
+
+    .rate-btn {
+      background: limegreen;
+      color: white;
+      border: none;
+      padding: 6px 16px;
+      border-radius: 12px;
+      font-weight: bold;
+      margin-left: 12px;
+      cursor: pointer;
+    }
+
+    .chevron-down {
+      text-align: center;
+      font-size: 28px;
+      color: #444;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="left">🎓 Student Portfolio</div>
+    <div class="right">🏠 📁 👤 🛍 🔔</div>
+  </div>
+
+  <div class="main-content">
+    <div class="card">
+      <div class="header">
+        <img src="https://via.placeholder.com/50" alt="User" />
+        <h3>Ahmed Hossam</h3>
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin est erat, auctor dapibus pulvinar at, bibendum non ex. [...]
+      </p>
+      <div class="rating">
+        <div class="stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <button class="rate-btn">Rate</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="header">
+        <img src="https://via.placeholder.com/50" alt="User" />
+        <h3>Ahmed Hossam</h3>
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin est erat, auctor dapibus pulvinar at, bibendum non ex. [...]
+      </p>
+      <div class="rating">
+        <div class="stars">
+          <span class="active">★</span>
+          <span class="active">★</span>
+          <span class="active">★</span>
+          <span>★</span>
+          <span>★</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chevron-down">⌄</div>
+
+</body>
+</html>

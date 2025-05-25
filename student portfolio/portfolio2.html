@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+    }
+
+    .header {
+      background: linear-gradient(90deg, #ffa726, #fb8c00);
+      padding: 20px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .header-icons img {
+      width: 24px;
+      margin: 0 10px;
+    }
+
+    .nav {
+      display: flex;
+      background-color: #ffb74d;
+      padding: 10px 20px;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+      font-weight: bold;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-item span {
+      margin-left: 5px;
+    }
+
+    .form-container {
+      padding: 30px;
+      background-color: white;
+      max-width: 1000px;
+      margin: 20px auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    select {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      appearance: none;
+    }
+
+    button {
+      grid-column: span 2;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      color: white;
+      text-align: center;
+    }
+
+    .btn-disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    .btn-enabled {
+      background-color: #43a047;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-title">Student Portfolio</div>
+    <div class="header-icons">
+      <img src="home-icon.png" alt="Home">
+      <img src="folder-icon.png" alt="Folder">
+      <img src="form-icon.png" alt="Form">
+      <img src="user-icon.png" alt="User">
+      <img src="bag-icon.png" alt="Bag">
+      <img src="bell-icon.png" alt="Notification">
+    </div>
+  </div>
+
+  <div class="nav">
+    <div class="nav-item">
+      <span style="color: limegreen;">⬤</span> Portfolio Point
+    </div>
+    <div class="nav-item">
+      <span style="color: red;">▶️</span> Student Data
+    </div>
+    <div class="nav-item">
+      <span style="color: gray;">▶️</span> Value
+    </div>
+  </div>
+
+  <form class="form-container" id="portfolioForm">
+    <div class="form-group">
+      <label for="school-year">School Year</label>
+      <select id="school-year">
+        <option value="">Choose A School Year</option>
+        <option>2023-2024</option>
+        <option>2024-2025</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="class">Classes</label>
+      <select id="class">
+        <option value="">Select Class</option>
+        <option>Class A</option>
+        <option>Class B</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="semester">Semester</label>
+      <select id="semester">
+        <option value="">Select Semester</option>
+        <option>1</option>
+        <option>2</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="subjects">Subjects</label>
+      <select id="subjects">
+        <option value="">Select Subjects</option>
+        <option>Math</option>
+        <option>Science</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="student-name">Student Name</label>
+      <select id="student-name">
+        <option value="">Select Students</option>
+        <option>Ahmed Hossam</option>
+        <option>Fatima Zahra</option>
+      </select>
+    </div>
+
+    <button id="submitBtn" class="btn-disabled" disabled>Save and continue</button>
+  </form>
+
+  <script>
+    const selects = document.querySelectorAll('select');
+    const submitBtn = document.getElementById('submitBtn');
+
+    function validateForm() {
+      let isValid = true;
+      selects.forEach(select => {
+        if (select.value === '') {
+          isValid = false;
+        }
+      });
+      submitBtn.disabled = !isValid;
+      submitBtn.className = isValid ? 'btn-enabled' : 'btn-disabled';
+    }
+
+    selects.forEach(select => {
+      select.addEventListener('change', validateForm);
+    });
+
+    document.getElementById('portfolioForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // prevent real submission
+      if (!submitBtn.disabled) {
+        alert('Form submitted successfully!');
+        console.log("Submitted Data:");
+        selects.forEach(select => console.log(`${select.id}: ${select.value}`));
+      }
+    });
+  </script>
+
+</body>
+</html>
